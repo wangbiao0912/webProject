@@ -2,9 +2,46 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>第一个vuejs demo</title>
 	</head>
+	<script src="https://unpkg.com/vue"></script>
 	<body>
+		<div id="app">
+			{{message}}
+		</div>
 		
+		<div id="app-2">
+		  <span v-bind:title="message">
+		    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+		  </span>
+		</div>
+		
+		<div id="app-3">
+		  <p v-if="seen">现在你看到我了</p>
+		</div>
 	</body>
+	
+	<script type="application/javascript">
+		var app = new Vue({
+		  	el: '#app',
+		  	data: {
+		    	message: 'Hello Vue!'
+			}
+		})
+		
+		//悬浮显示
+		var app2 = new Vue({
+		  el: '#app-2',
+		  data: {
+		    message: '页面加载于 ' + new Date().toLocaleString()
+		  }
+		})
+		
+		var app3 = new Vue({
+		  el: '#app-3',
+		  data: {
+		    seen: true
+		  }
+		})
+	</script>
 </html>
